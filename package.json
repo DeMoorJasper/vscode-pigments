@@ -1,7 +1,7 @@
 {
 	"name": "vscode-pigments",
 	"description": "Previews colors used inside the editor",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "jaspernorth",
 	"license": "MIT",
 	"engines": {
@@ -17,6 +17,12 @@
 		"type": "git",
 		"url": "git://github.com/DeMoorJasper/vscode-pigments.git"
 	},
+	"contributors": [
+		{
+			"name" : "Jasper De Moor",
+			"url" : "http://jasperdemoor.me/"
+		}
+	],
 	"icon": "preview.jpg",
 	"main": "./out/extension",
 	"scripts": {
