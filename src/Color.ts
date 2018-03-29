@@ -1,8 +1,9 @@
 import { window, TextEditorDecorationType, DecorationOptions, DecorationRangeBehavior } from 'vscode';
 const ColorLibrary = require('color');
 
-function negate(color) : string {
-  return ColorLibrary(color).negate().string();
+function contrast(colorString) : string {
+  let color = ColorLibrary(colorString);
+  return color.negate().string();
 }
 
 export default class Color {
@@ -18,7 +19,7 @@ export default class Color {
   generateType() {
     this.decorationType = window.createTextEditorDecorationType({
       backgroundColor: this.color,
-      color: negate(this.color),
+      color: contrast(this.color),
       rangeBehavior: DecorationRangeBehavior.ClosedClosed
     });
   }
