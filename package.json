@@ -1,7 +1,7 @@
 {
 	"name": "vscode-pigments",
 	"description": "Previews colors used inside the editor",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"publisher": "jaspernorth",
 	"license": "MIT",
 	"engines": {
