@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
 import Color from './Color';
 
-const LANGUAGES = ['css', 'scss', 'less', , 'plaintext'];
-const COLOR_CODE_REGEX : RegExp = /(#[A-Fa-f0-9]{2,6})|(rgb(a?)\(( *(\d|\.)+ *,?){3,4}\))/g;
+const LANGUAGES = ['css', 'scss', 'less', 'plaintext'];
+const COLOR_CODE_REGEX : RegExp = /(#[A-Fa-f0-9]{2,6})|(rgb(a?)\(( *(\d|\.)+ *,?){3,4}\))|hsl\(( *\d+%? *,*){3}\)/g;
 const COLOR_NAME_REGEX : RegExp = /(color:|background:) +(aliceblue|antiquewhite|aquamarine|aqua|azure|beige|bisque|black|blanchedalmond|blueviolet|blue|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|cyan|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|fuchsia|gainsboro|ghostwhite|goldenrod|gold|gray|green|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavenderblush|lavender|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|lime|limegreen|linen|magenta|maroon|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|navy|oldlace|olive|olivedrab|orange|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|purple|rebeccapurple|red|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|silver|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|yellow)/g;
 
 // this method is called when vs code is activated
