@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
 import Color from './Color';
 
-const LANGUAGES = ['css', 'scss', 'less', 'plaintext'];
+const CSS_EXT_LIST = ['css', 'sass', 'scss', 'less', 'vue', 'pcss', 'styl', 'stylus'];
+const CODE_EXT_LIST = ['js', 'jsx', 'ts', 'tsx', 'es6', 'jsm', 'mjs', 'ml', 're', 'coffee', 'vue', 'rs', 'html', 'htm', 'jade', 'pug', 'svg', 'glsl', 'vert', 'frag'];
 const COLOR_CODE_REGEX : RegExp = /(#[A-Fa-f0-9]{2,6})|(rgb(a?)\(( *(\d|\.)+ *,?){3,4}\))|hsl\(( *\d+%? *,*){3}\)/g;
 const COLOR_NAME_REGEX : RegExp = /(color:|background:) +(aliceblue|antiquewhite|aquamarine|aqua|azure|beige|bisque|black|blanchedalmond|blueviolet|blue|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|cyan|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|fuchsia|gainsboro|ghostwhite|goldenrod|gold|gray|green|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavenderblush|lavender|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|lime|limegreen|linen|magenta|maroon|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|navy|oldlace|olive|olivedrab|orange|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|purple|rebeccapurple|red|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|silver|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|yellow)/g;
 
@@ -51,6 +52,10 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}
 
+	function getExtension(filename) {
+		return filename.substring(filename.lastIndexOf('.') + 1);
+	}
+
 	// Update the actual decorators
 	function updateDecorations() {
 		if (!activeEditor || !activeEditor.document) {
@@ -60,6 +65,9 @@ export function activate(context: vscode.ExtensionContext) {
 		const text = activeEditor.document.getText();
 		let match;
 		let decorations = {};
+		let extension = getExtension(activeEditor.document.fileName);
+
+		if (CSS_EXT_LIST.indexOf(extension) === -1 && CODE_EXT_LIST.indexOf(extension) === -1) return;
 
 		const addMatch = (match) => {
 			const startPos = activeEditor.document.positionAt(match.index);
@@ -75,7 +83,7 @@ export function activate(context: vscode.ExtensionContext) {
 			addMatch(match);
 		}
 		
-		if (LANGUAGES.indexOf(activeEditor.document.languageId) > -1) {
+		if (CSS_EXT_LIST.indexOf(extension) >= 0) {
 			while (match = COLOR_NAME_REGEX.exec(text)) {
 				let originalMatch = match[0];
 				match[0] = match[0].substring(match[0].lastIndexOf(' ') + 1);
@@ -83,7 +91,7 @@ export function activate(context: vscode.ExtensionContext) {
 				addMatch(match);
 			}
 		}
-
+		
 		Object.keys(decorations).forEach(key => {
 			let color : Color = decorations[key];
 			activeEditor.setDecorations(color.decorationType, color.decorationOptions);
