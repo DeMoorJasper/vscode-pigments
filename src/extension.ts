@@ -11,6 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log('vscode pigments is activated');
 
 	let activeEditor = vscode.window.activeTextEditor;
+	let decorations = {};
 
 	// Register events
 	vscode.window.onDidChangeActiveTextEditor(editor => {
@@ -62,9 +63,17 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
+		// Dispose decorations
+		if (decorations) {
+			Object.keys(decorations).forEach(key => {
+				let color : Color = decorations[key];
+				color.decorationType.dispose();
+				delete decorations[key];
+			});
+		}
+
 		const text = activeEditor.document.getText();
 		let match;
-		let decorations = {};
 		let extension = getExtension(activeEditor.document.fileName);
 
 		if (CSS_EXT_LIST.indexOf(extension) === -1 && CODE_EXT_LIST.indexOf(extension) === -1) return;
