@@ -89,7 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		while (match = COLOR_CODE_REGEX.exec(text)) {
-			addMatch(match[1]);
+			addMatch(match[2]);
 		}
 		
 		if (CSS_EXT_LIST.indexOf(extension) >= 0) {
