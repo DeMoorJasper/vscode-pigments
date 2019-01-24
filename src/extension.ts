@@ -90,7 +90,6 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		while (match = COLOR_CODE_REGEX.exec(text)) {
-			console.log(match);
 			addMatch({
 				index: match.index + match[1].length,
 				value: match[3]
