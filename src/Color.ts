@@ -17,18 +17,39 @@ function normaliseColor(color) {
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
+type MarkerProps = {
+  color: string;
+  negativeColor: string;
+};
+
+const markerRenderers = {
+  background: (props: MarkerProps) => {
+    return {
+      backgroundColor: props.color,
+      color: props.negativeColor
+    };
+  },
+  outline: (props: MarkerProps) => {
+    return {
+      border: `1px solid ${props.color}`
+    };
+  }
+};
+
 export default class Color {
   decorationType: TextEditorDecorationType;
   decorationOptions: DecorationOptions[] = [];
   color: string;
   negativeColor: string;
 
-  constructor(color: string) {
+  constructor(color: string, markerType: string) {
     this.color = normaliseColor(color.toLowerCase());
     this.negativeColor = contrastColor(this.color);
     this.decorationType = window.createTextEditorDecorationType({
-      backgroundColor: this.color,
-      color: this.negativeColor,
+      ...markerRenderers[markerType]({
+        color: this.color,
+        negativeColor: this.negativeColor
+      }),
       rangeBehavior: DecorationRangeBehavior.ClosedClosed
     });
   }

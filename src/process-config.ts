@@ -32,8 +32,8 @@ const DEFAULT_ENABLED_EXTS = [
 ];
 
 export type ConfigInput = {
-  enabledExtensions?: Array<string>;
-  disabledExtensions?: Array<string>;
+  enabledExtensions?: string;
+  disabledExtensions?: string;
   markerType?: string;
 };
 
@@ -43,10 +43,18 @@ export type Config = {
   markerType: string;
 };
 
+function stringToArray(s: any): Array<string> {
+  if (typeof s === 'string') {
+    return s.split(",").map(st => st.trim()).filter(st => !!st);
+  }
+}
+
 export default function processConfig(config: ConfigInput): Config {
   return {
-    enabledExtensions: config.enabledExtensions || DEFAULT_ENABLED_EXTS,
-    disabledExtensions: config.disabledExtensions || DEFAULT_DISABLED_EXTS,
+    enabledExtensions:
+      stringToArray(config.enabledExtensions) || DEFAULT_ENABLED_EXTS,
+    disabledExtensions:
+      stringToArray(config.disabledExtensions) || DEFAULT_DISABLED_EXTS,
     markerType: config.markerType || DEFAULT_MARKER_TYPE
   };
 }
