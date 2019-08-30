@@ -48,26 +48,17 @@
       "title": "pigments",
       "properties": {
         "pigments.markerType": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "default": null,
           "description": "Specifies the marker type used to highlight colors."
         },
         "pigments.enabledExtensions": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "default": null,
           "description": "Specifies the file extensions to apply this plugin to."
         },
         "pigments.disabledExtensions": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "default": null,
           "description": "Specifies the file extensions this plugin should ignore, this overwrites any values in pigments.enabledExtensions (including the defaults)."
         }
