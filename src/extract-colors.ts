@@ -1,4 +1,4 @@
-const COLOR_REGEX: RegExp = /(( |:)+)((#[A-Fa-f0-9]{2,8})|((rgb|RGB)(a|A)?\(( *(\d|\.)+ *,?){3,4}\))|(hsl|HSL)(a|A)?\(( *\d+%? *,*){3,4}\))( |;|,)+/g;
+const COLOR_REGEX: RegExp = /(( |:|'|"|`)+)((#[A-Fa-f0-9]{2,8})|((rgb|RGB)(a|A)?\(( *(\d|\.)+ *,?){3,4}\))|(hsl|HSL)(a|A)?\(( *(\d|\.)+%? *,*){3,4}\))( |;|,|'|"|`)+/g;
 
 export type Match = {
   index: number;
