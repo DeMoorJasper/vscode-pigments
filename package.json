@@ -1,46 +1,46 @@
 {
-	"name": "vscode-pigments",
-	"description": "Previews colors used inside the editor",
-	"version": "1.0.6",
-	"publisher": "jaspernorth",
-	"license": "MIT",
-	"engines": {
-		"vscode": "^1.15.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"*"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/DeMoorJasper/vscode-pigments.git"
-	},
-	"contributors": [
-		{
-			"name": "Jasper De Moor",
-			"url": "http://jasperdemoor.me/"
-		}
-	],
-	"icon": "https://github.com/DeMoorJasper/vscode-pigments/raw/master/preview.jpg",
-	"main": "./out/extension",
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"vscode:publish": "vsce publish",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "yarn compile && mocha"
-	},
-	"devDependencies": {
-		"@types/node": "7.0.4",
-		"typescript": "^2.5.3",
-		"vsce": "^1.44.0",
-		"vscode": "^1.1.5"
-	},
-	"dependencies": {
-		"mocha": "^6.2.0",
-		"tinycolor2": "^1.4.1"
-	}
+  "name": "vscode-pigments",
+  "description": "Previews colors used inside the editor",
+  "version": "1.0.6",
+  "publisher": "jaspernorth",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.15.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DeMoorJasper/vscode-pigments.git"
+  },
+  "contributors": [
+    {
+      "name": "Jasper De Moor",
+      "url": "http://jasperdemoor.me/"
+    }
+  ],
+  "icon": "https://github.com/DeMoorJasper/vscode-pigments/raw/master/preview.jpg",
+  "main": "./out/extension",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "vscode:publish": "vsce publish",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "yarn compile && mocha"
+  },
+  "devDependencies": {
+    "@types/node": "7.0.4",
+    "typescript": "^2.5.3",
+    "vsce": "^1.44.0",
+    "vscode": "^1.1.5",
+    "mocha": "^6.2.0"
+  },
+  "dependencies": {
+    "tinycolor2": "^1.4.1"
+  }
 }
