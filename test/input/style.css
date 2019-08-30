@@ -1,0 +1,22 @@
+#featured-media button:hover {
+  background: #00a6e4;
+}
+
+.something {
+  background-color: hsla(120, 100%, 50%, 0.3);
+  background-color: hsl(120, 100%, 50%);
+  background-color: HSL(120, 100%, 50%);
+  background-color: HSLA(120, 100%, 50%, 0.3);
+
+  color: rgba(123, 123, 123, 0.65);
+  color: rgb(1, 123, 123);
+  color: RGB(1, 123, 123);
+  color: RGBA(255, 123, 255, 0.65);
+
+  color: #ffffff;
+  color: #FFFFFF;
+
+  color:rgb(1, 123, 123) ;
+  color: rgb(1, 123, 123) ;
+  color:rgb(1, 123, 123);
+}

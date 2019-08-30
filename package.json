@@ -23,7 +23,7 @@
 			"url": "http://jasperdemoor.me/"
 		}
 	],
-	"icon": "preview.jpg",
+	"icon": "https://github.com/DeMoorJasper/vscode-pigments/raw/master/preview.jpg",
 	"main": "./out/extension",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
