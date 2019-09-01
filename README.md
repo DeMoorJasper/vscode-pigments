@@ -20,12 +20,12 @@ Possible options are: `background` and `outline`.
 
 ### `pigments.enabledExtensions`
 
-enabledExtensions defines which file extensions this plugin should apply to.
+enabledExtensions defines which file extensions this plugin should apply to. This should be a comma seperated list of extensions, see the example below.
 
-Usage: `css, sass, jsx`
+Example: `css, sass, jsx`
 
 ### `pigments.disabledExtensions`
 
-disabledExtensions defines which file extensions this plugin should ignore, this overwrites any value provided in `pigments.enabledExtensions` including the defaults.
+disabledExtensions defines which file extensions this plugin should ignore, this overwrites any value provided in `pigments.enabledExtensions` including the defaults. This should be a comma seperated list of extensions, see the example below.
 
-Usage: `css, sass, jsx`
+Example: `css, sass, jsx`
